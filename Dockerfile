@@ -1,5 +1,7 @@
+# Create or update Dockerfile
+cat > Dockerfile << EOL
 # Base image
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -21,3 +23,7 @@ EXPOSE 3000
 
 # Start the server
 CMD [ "npm", "run", "start:prod" ]
+EOL
+
+# Build and run again
+docker-compose up -d --build
